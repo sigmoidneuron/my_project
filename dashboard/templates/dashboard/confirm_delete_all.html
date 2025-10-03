@@ -1,0 +1,19 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Delete All{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger shadow-sm">
+            <div class="card-body">
+                <h1 class="h4 text-danger">Delete all phone numbers?</h1>
+                <p class="mb-4">This action will remove every phone number from the database. There is no undo.</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Yes, delete everything</button>
+                    <a href="{% url 'dashboard:home' %}" class="btn btn-link">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
