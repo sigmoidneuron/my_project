@@ -1,0 +1,45 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Upload CSV{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="h4 mb-3">Upload CSV</h1>
+                <p class="text-muted">Header must be exactly: <code>area code,phone number,cost</code></p>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.csv_file.label_tag }}
+                        {{ form.csv_file }}
+                        {% for error in form.csv_file.errors %}
+                            <div class="text-danger small">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                    <a href="{% url 'dashboard:home' %}" class="btn btn-link">Back</a>
+                </form>
+                {% if summary %}
+                <hr>
+                <h2 class="h5">Summary</h2>
+                <ul>
+                    <li>Inserted: {{ summary.inserted }}</li>
+                    <li>Updated: {{ summary.updated }}</li>
+                    <li>Skipped: {{ summary.skipped }}</li>
+                </ul>
+                {% if details %}
+                <div class="alert alert-warning">
+                    <h3 class="h6">Details</h3>
+                    <ul class="mb-0">
+                        {% for line in details %}
+                        <li>{{ line }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
