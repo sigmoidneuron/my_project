@@ -1,0 +1,38 @@
+[
+  {
+    "model": "catalog.phonenumber",
+    "pk": 1,
+    "fields": {
+      "area_code": "212",
+      "local_number": "5550001",
+      "cost": "10.00"
+    }
+  },
+  {
+    "model": "catalog.phonenumber",
+    "pk": 2,
+    "fields": {
+      "area_code": "212",
+      "local_number": "5550002",
+      "cost": "12.50"
+    }
+  },
+  {
+    "model": "catalog.phonenumber",
+    "pk": 3,
+    "fields": {
+      "area_code": "646",
+      "local_number": "1234567",
+      "cost": "8.75"
+    }
+  },
+  {
+    "model": "catalog.phonenumber",
+    "pk": 4,
+    "fields": {
+      "area_code": "415",
+      "local_number": "9876543",
+      "cost": "15.25"
+    }
+  }
+]
